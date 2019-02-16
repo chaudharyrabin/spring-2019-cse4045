@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Smart Device App Development</string>
+    <string name="content_of_image">unsplash-image</string>
+    <string name="location_text">Location</string>
+    <string name="location_text_details">Some where in USA</string>
+    <string name="date_text">Date</string>
+    <string name="date_text_details">07-21-2011</string>
+    <string name="multiline_text">Say thanks Crediting isn’t required, but is appreciated and allows photographers to gain exposure.</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="cancel_button_text">Cancel</string>
 </resources>
