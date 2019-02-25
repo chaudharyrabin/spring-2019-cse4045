@@ -1,89 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageview1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/benjamin_voros"
-        android:scaleType="fitXY"
-        android:layout_weight="1"
-        android:contentDescription="@string/content_of_image"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp">
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:text="@string/location_text"
-            android:textSize="18sp"
-            android:fontFamily="cursive"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:text="@string/location_text_details"
-            android:textSize="13sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:text="@string/date_text"
-            android:textSize="18sp"
-            android:fontFamily="cursive"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:text="@string/date_text_details"
-            android:textSize="13sp" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:lines="50"
-        android:text="@string/multiline_text"
-        android:padding="5dp"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit_button_text"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorWhite"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel_button_text"
-            android:textColor="@color/colorWhite"
-            android:background="@color/colorAccent"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
 
 
-</LinearLayout>
+
+</FrameLayout>
