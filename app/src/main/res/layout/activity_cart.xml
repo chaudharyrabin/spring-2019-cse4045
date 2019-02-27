@@ -7,6 +7,14 @@
     tools:context=".CartActivity"
     android:orientation="vertical">
 
+
+    <TextView
+        android:id="@+id/downloaded_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Download attach from MainActivity"/>
+
+
     <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
