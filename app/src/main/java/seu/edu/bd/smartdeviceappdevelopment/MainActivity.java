@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import seu.edu.bd.smartdeviceappdevelopment.fragment.ProductListFragment;
+import seu.edu.bd.smartdeviceappdevelopment.listcontent.StudentListActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,11 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String mobileNo = this.mobileno.getText().toString();
 
 
-        Intent intent = new Intent(MainActivity.this, CartActivity.class);
+        Intent intent = new Intent(MainActivity.this, StudentListActivity.class);
 
-        intent.putExtra("user_name", username);
-        intent.putExtra("password",password);
-        intent.putExtra("mobile_no", mobileNo);
+
 
 
 
