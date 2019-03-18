@@ -37,4 +37,24 @@
         android:layout_height="wrap_content"
         android:text="Show Information"/>
 
+    <TextView
+        android:id="@+id/service_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/start_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Service"/>
+
+    <Button
+        android:id="@+id/stop_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop Service"/>
+
 </LinearLayout>

@@ -1,24 +1,21 @@
 package seu.edu.bd.smartdeviceappdevelopment;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import seu.edu.bd.smartdeviceappdevelopment.fragment.ProductListFragment;
 import seu.edu.bd.smartdeviceappdevelopment.listcontent.StudentListActivity;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button clickMe;
     EditText username, password, mobileno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         // call to another activity
 
-        String username = this.username.getText().toString();
+        /*String username = this.username.getText().toString();
         String password = this.password.getText().toString();
-        String mobileNo = this.mobileno.getText().toString();
-
+        String mobileNo = this.mobileno.getText().toString();*/
 
         Intent intent = new Intent(MainActivity.this, StudentListActivity.class);
-
-
-
-
-
         startActivity(intent);
+
     }
 }
