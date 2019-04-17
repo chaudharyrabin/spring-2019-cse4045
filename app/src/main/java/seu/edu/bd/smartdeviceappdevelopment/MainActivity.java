@@ -1,14 +1,26 @@
 package seu.edu.bd.smartdeviceappdevelopment;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.media.Image;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -23,6 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -34,11 +47,11 @@ import seu.edu.bd.smartdeviceappdevelopment.service.MyService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button clickMe, startService, stopService, webapicall;
+    Button clickMe, startService, stopService, webapicall, camera;
     EditText username, password, mobileno;
     private Intent myServiceIntent;
     private ArrayList<Employee> employees;
-
+    private String currentPathUri;
 
 
     @Override
@@ -61,12 +74,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password = findViewById(R.id.password);
         mobileno = findViewById(R.id.mobileNo);
         webapicall = findViewById(R.id.webapi);
+        camera = findViewById(R.id.camera);
 
         // button on click
         clickMe.setOnClickListener(this);
         startService.setOnClickListener(this);
         stopService.setOnClickListener(this);
         webapicall.setOnClickListener(this);
+        camera.setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //APICall apiCall = new APICall();
             //apiCall.execute("http://dummy.restapiexample.com/api/v1/employees");
             networkCommunication();
+        }else if(v.getId() == R.id.camera){
+            startActivity(new Intent(this, CameraActivity.class));
         }else {
             // call to another activity
 
@@ -122,6 +139,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         queue.add(jsonArrayRequest);
     }
-
-
 }
