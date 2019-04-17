@@ -3,6 +3,7 @@ package seu.edu.bd.smartdeviceappdevelopment.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import java.util.Random;
@@ -14,7 +15,7 @@ public class MyService extends Service {
     private int min = 0;
     private int max = 100;
     private boolean isRandomNumberGenerate = true;
-    private int randonNumber;
+    private int randomNumber;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -37,13 +38,19 @@ public class MyService extends Service {
     private void generateRandomNumber() throws InterruptedException {
         while (isRandomNumberGenerate){
             Thread.sleep(1000);
-            randonNumber = new Random().nextInt(max);
-            Log.i(getString(R.string.tag), "Random number : "+randonNumber);
+            randomNumber = new Random().nextInt(max);
+
+            // send to activity
+            Intent intent = new Intent("action_random_number_service");
+
+            intent.putExtra("data", randomNumber);
+
+            LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         }
     }
 
-    public int getRandonNumber(){
-        return randonNumber;
+    public int getRandomNumber(){
+        return randomNumber;
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -82,13 +83,13 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             imageView.setImageBitmap(bitmap);
 
             try {
-                File dir = getExternalFilesDir(Environment.getExternalStorageDirectory()+"/Images");
-
-                File path = new File(dir, "image.jpg");
+                File dir = getExternalFilesDir(Environment.getExternalStorageDirectory()+File.separator+"Image");
+                File path = File.createTempFile("Photo_"+System.currentTimeMillis(),".jpg",dir);
                 FileOutputStream fos = new FileOutputStream(path);
                 bitmap.compress(Bitmap.CompressFormat.JPEG,100,fos);
                 fos.flush();
                 fos.close();
+                Log.i(getString(R.string.tag),"Image Saved in + "+path.getAbsolutePath());
             }catch (Exception ex){
                 ex.printStackTrace();
             }

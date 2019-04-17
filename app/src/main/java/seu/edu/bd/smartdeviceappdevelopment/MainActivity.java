@@ -1,8 +1,10 @@
 package seu.edu.bd.smartdeviceappdevelopment;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.Image;
@@ -14,6 +16,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Intent myServiceIntent;
     private ArrayList<Employee> employees;
     private String currentPathUri;
+    private IntentFilter filter;
 
 
     @Override
@@ -60,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Log.d("ABC", "on create callback");
 
+        // init filter
+        filter = new IntentFilter("action_random_number_service");
+
+        // register local broadcast
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(receiver, filter);
 
     }
 
@@ -139,4 +149,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         queue.add(jsonArrayRequest);
     }
+
+    // receive data from service
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // TODO
+            if(intent.getAction().equals(filter.getAction(0))){
+                int number = intent.getExtras().getInt("data");
+                Log.i(getString(R.string.tag),String.valueOf(number));
+            }
+        }
+    };
 }
